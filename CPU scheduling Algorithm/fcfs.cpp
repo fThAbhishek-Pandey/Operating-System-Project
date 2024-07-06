@@ -7,16 +7,18 @@ int main() {
      cout<<"enter the number of process : ";
      int n;
      cin>>n;
-     vector<vector<int>>Timearr(n,vector<int>(2));
-     // Timearr[i][0] --> arrival time 
+     vector<vector<int>>Timearr(n,vector<int>(3));
+      // Timerr[i][0]---.arrival time 
      // Timearr[i][1] --> brust time
+     // Timearr[i][2] -->  id
      for (int i=0;i<n;i++){
-        cout<<"enter arrival time for P"<<i<<" : ";
+         Timearr[i][2];// giving process id
+        cout<<"enter arrival time for P"<<i+1<<" : ";
         cin>>Timearr[i][0];
-        cout<<"Enter brust time for P"<<i<<" : ";
+        cout<<"Enter brust time for P"<<i+1<<" : ";
         cin>>Timearr[i][1];
      }
-      // sort the array by arrival time 
+      // sort the array b  id time 
       sort ( Timearr.begin(), Timearr.end());
       // culculation 
       vector<int> abscompletionTime (n+1);
@@ -46,11 +48,11 @@ int main() {
        Wt = waiting time
        TAT = Turn around time
        */
-      cout<<"AT "<<"BT "<<"CT "<<"WT "<<"TAT " <<endl;
+      cout<<"id "<<"AT "<<"BT "<<"CT "<<"WT "<<"TAT " <<endl;
       for(int i=0;i<n;i++){
-        cout<<Timearr[i][0]<<"  "<<Timearr[i][1]<<"  "<<abscompletionTime[i+1]<<"  "<<waiting_time[i]<<"  "<<Tern_around_time[i]<<endl;
+        cout<<"P"<<Timearr[i][2]<<" "<<Timearr[i][0]<<"  "<<Timearr[i][1]<<"  "<<abscompletionTime[i+1]<<"  "<<waiting_time[i]<<"  "<<Tern_around_time[i]<<endl;
       }
       cout<<"Average waiting Time : "<<tot_waiting_time/n<<endl;
-      cout<<"Average waiting Time : "<<tot_TAT/n<<endl;
+      cout<<"Average TAT Time : "<<tot_TAT/n<<endl;
     return 0; 
 }
